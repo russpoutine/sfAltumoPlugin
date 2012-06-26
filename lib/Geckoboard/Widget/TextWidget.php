@@ -119,16 +119,18 @@ class TextWidget extends \sfAltumoPlugin\Geckoboard\Widget\AbstractWidget
         {
             case self::WIDGET_TYPE_SINGLE:
                 $container_height = 92;
+                $chart_height = 84;
                 $font_size = 11;
-                $line_height = 12;
                 break;
             case self::WIDGET_TYPE_DOUBLE:
             default:
-                $container_height = 343;
+                $container_height = 310;
+                $chart_height = 290;
                 $font_size = 14;
-                $line_height = 48;
                 break;
         }
+
+        $line_height = ( $chart_data_count !== 0 ) ? floor( $chart_height / $chart_data_count ) : 0;
 
 
         // find the largest value in the data set (this will be the largest bar)
